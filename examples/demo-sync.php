@@ -35,8 +35,6 @@ $slice = $connection->readStreamEventsForward(
     true
 );
 
-\var_dump($slice);
-
 $slice = $connection->readStreamEventsBackward(
     'foo-bar',
     10,
@@ -46,11 +44,7 @@ $slice = $connection->readStreamEventsBackward(
 
 $event = $connection->readEvent('foo-bar', 2, true);
 
-\var_dump($event);
-
 $m = $connection->getStreamMetadata('foo-bar');
-
-\var_dump($m);
 
 $wr = $connection->appendToStream('foo-bar', ExpectedVersion::Any, [
     new EventData(EventId::generate(), 'test-type', false, 'jfkhksdfhsds', 'meta'),
@@ -58,7 +52,5 @@ $wr = $connection->appendToStream('foo-bar', ExpectedVersion::Any, [
     new EventData(EventId::generate(), 'test-type3', false, 'aaa', 'meta'),
     new EventData(EventId::generate(), 'test-type4', false, 'bbb', 'meta'),
 ]);
-
-\var_dump($wr);
 
 $connection->close();
