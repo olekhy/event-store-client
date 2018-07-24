@@ -24,6 +24,9 @@ class UserCredentials
         if (empty($username)) {
             throw new \InvalidArgumentException('Username cannot be empty');
         }
+        if (empty($password)) {
+            throw new \InvalidArgumentException('Password cannot be empty');
+        }
 
         $this->username = $username;
         $this->password = $password;
